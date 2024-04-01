@@ -5,7 +5,7 @@ window.onscroll = function() {
 
     if (pageYOffset > fixedNav) {
         header.classList.add('navbar-fixed');
-    } else {
+    } else {  
         header.classList.remove('navbar-fixed');
     }
     
@@ -23,3 +23,43 @@ hamburger.addEventListener('click', function() {
 });
 
 //typing
+
+document.addEventListener('DOMContentLoaded', function () {
+    const aboutSection = document.getElementById('about');
+    const portfolioSection = document.getElementById('portfolio');
+    const clientsSection = document.getElementById('clients');
+    const blogSection = document.getElementById('blog');
+  
+    // Inisialisasi ScrollReveal untuk setiap bagian
+    ScrollReveal().reveal(aboutSection, getScrollRevealConfig());
+    ScrollReveal().reveal(portfolioSection, getScrollRevealConfig());
+    ScrollReveal().reveal(clientsSection, getScrollRevealConfig());
+    ScrollReveal().reveal(blogSection, getScrollRevealConfig());
+  
+    // Tambahkan event listener untuk menambahkan kelas 'reveal' saat elemen terlihat
+    aboutSection.addEventListener('scrollreveal:afterReveal', function () {
+        aboutSection.classList.add('reveal');
+      });
+    portfolioSection.addEventListener('scrollreveal:afterReveal', function () {
+      portfolioSection.classList.add('reveal');
+    });
+  
+    clientsSection.addEventListener('scrollreveal:afterReveal', function () {
+      clientsSection.classList.add('reveal');
+    });
+  
+    blogSection.addEventListener('scrollreveal:afterReveal', function () {
+      blogSection.classList.add('reveal');
+    });
+  });
+  
+  function getScrollRevealConfig() {
+    return {
+      duration: 800,
+      delay: 200,
+      easing: 'cubic-bezier(0.5, 0, 0, 1)',
+      reset: true
+    };
+  }
+  
+  
